@@ -56,12 +56,14 @@ Sigue estos pasos para configurar y ejecutar el proyecto localmente.
     {
       "id": 1,
       "nombre": "Laptop Gamer XYZ",
+      "cantidad": 1,
       "descripcion": "Laptop de alta gama para videojuegos con pantalla de 15.6\" y procesador i7.",
       "precio": 1500.00
     },
     {
       "id": 2,
       "nombre": "Smartphone Alpha X12",
+      "cantidad": 4,
       "descripcion": "Smartphone de última generación con cámara de 108MP...",
       "precio": 899.99
     }
@@ -76,6 +78,7 @@ Sigue estos pasos para configurar y ejecutar el proyecto localmente.
   {
     "id": 1,
     "nombre": "Laptop Gamer XYZ",
+    "cantidad": 1,
     "descripcion": "Laptop de alta gama para videojuegos con pantalla de 15.6\" y procesador i7.",
     "precio": 1500.00
   }
@@ -87,8 +90,10 @@ Sigue estos pasos para configurar y ejecutar el proyecto localmente.
 - **Cuerpo de la solicitud**:
   ```json
   {
+    "id": 1,
     "nombre": "Laptop Gamer XYZ",
-    "descripcion": "Laptop de alta gama para videojuegos...",
+    "cantidad": 1,
+    "descripcion": "Laptop de alta gama para videojuegos con pantalla de 15.6\" y procesador i7.",
     "precio": 1500.00
   }
 
@@ -99,9 +104,11 @@ Sigue estos pasos para configurar y ejecutar el proyecto localmente.
 - **Cuerpo de la solicitud**:
   ```json
   {
-  "nombre": "Laptop Gamer XYZ",
-  "descripcion": "Laptop de alta gama con nueva tarjeta gráfica...",
-  "precio": 1600.00
+    "id": 1,
+    "nombre": "Laptop Gamer XYZ",
+    "cantidad": 1,
+    "descripcion": "Laptop de alta gama para videojuegos con pantalla de 15.6\" y procesador i7.",
+    "precio": 1500.00
   }
 
 ### 5. Eliminar un producto
