@@ -1,6 +1,6 @@
 # Proyecto de API de Productos
 
-Este es un proyecto que implementa una API RESTful para gestionar productos. La API permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los productos, como laptops, smartphones, auriculares y más.
+Este es un proyecto que implementa una API RESTful para gestionar productos. La API permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los productos.
 
 ### Funcionalidades
 
