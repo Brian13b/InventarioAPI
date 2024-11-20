@@ -15,7 +15,7 @@ Este es un proyecto que implementa una API RESTful para gestionar productos. La 
 - **ASP.NET Core**: Framework utilizado para construir la API RESTful.
 - **C#**: Lenguaje de programación principal del proyecto.
 - **Entity Framework Core** (opcional, dependiendo de tu configuración de base de datos): ORM utilizado para la gestión de datos.
-- **SQL Server** o cualquier otra base de datos que elijas para almacenar los productos.
+- **PostgreSQL** o cualquier otra base de datos que elijas para almacenar los productos.
 
 ## Instalación
 
