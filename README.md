@@ -1,119 +1,141 @@
-# Proyecto de API de Productos
+# 🛍️ Product API - Sistema de Gestión de Productos 
 
-Este es un proyecto que implementa una API RESTful para gestionar productos. La API permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los productos.
+![.NET Version](https://img.shields.io/badge/.NET-6.0-512BD4?logo=dotnet)
+![C#](https://img.shields.io/badge/C%23-Language-239120?logo=c-sharp)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-### Funcionalidades
+API RESTful para gestión de productos con operaciones CRUD completa, desarrollada en ASP.NET Core.
 
-- **Obtener todos los productos** (`GET /api/productos`)
-- **Obtener un producto específico** (`GET /api/productos/{id}`)
-- **Crear un nuevo producto** (`POST /api/productos`)
-- **Actualizar un producto existente** (`PUT /api/productos/{id}`)
-- **Eliminar un producto** (`DELETE /api/productos/{id}`)
+---
 
-## Tecnologías Utilizadas
+## 🌟 Características Principales
 
-- **ASP.NET Core**: Framework utilizado para construir la API RESTful.
-- **C#**: Lenguaje de programación principal del proyecto.
-- **Entity Framework Core** (opcional, dependiendo de tu configuración de base de datos): ORM utilizado para la gestión de datos.
-- **PostgreSQL** o cualquier otra base de datos que elijas para almacenar los productos.
+- ✅ **CRUD Completo** para productos
+- 🔍 Búsqueda de productos por ID
+- 📦 Modelo de datos flexible
+- 🔐 Validación integrada de datos
+- 📄 Documentación de API incluida
 
-## Instalación
+---
 
-Sigue estos pasos para configurar y ejecutar el proyecto localmente.
+## 🛠️ Stack Tecnológico
 
-### Requisitos
+| Tecnología             | Uso en el Proyecto                     |
+|------------------------|----------------------------------------|
+| **ASP.NET Core 6**     | Framework principal para la API        |
+| **C# 10**              | Lenguaje de programación               |
+| **Entity Framework**   | ORM para acceso a datos                |
+| **PostgreSQL**         | Base de datos relacional               |
+| **Swagger**            | Documentación interactiva de la API    |
 
-1. **.NET SDK**: Asegúrate de tener el SDK de .NET instalado en tu máquina. Puedes descargarlo desde [aquí](https://dotnet.microsoft.com/download).
-2. **Editor de Código**: Se recomienda usar [Visual Studio](https://visualstudio.microsoft.com/es/) o [Visual Studio Code](https://code.visualstudio.com/).
+---
 
-### Pasos
+## 🚀 Instalación y Configuración
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/tuusuario/tu-repositorio.git
+### Requisitos Previos
+- [.NET 6 SDK](https://dotnet.microsoft.com/download)
+- [Visual Studio 2022](https://visualstudio.microsoft.com/) o [VS Code](https://code.visualstudio.com/)
+- [PostgreSQL](https://www.postgresql.org/download/) (opcional)
 
-2. **Abrir el proyecto en tu editor de código Si estás usando Visual Studio Code, puedes abrir la carpeta del proyecto con:**
-   ```bash
-   code .
+### Pasos para Configuración
 
-3. **Restaurar los paquetes NuGet Ejecuta el siguiente comando para restaurar las dependencias del proyecto:**
-   ```bash
-   dotnet restore
-   
-4. **Ejecutar la aplicación Puedes ejecutar la API con el siguiente comando:**
-   ```bash
-   dotnet run
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/tuusuario/product-api.git
 
-## Endpoints
+# 2. Navegar al directorio del proyecto
+cd product-api
 
-### 1. Obtener todos los productos
-- **Método**: `GET`
-- **Ruta**: `/api/productos`
-- **Descripción**: Obtiene una lista de todos los productos.
-- **Respuesta exitosa**:
-  ```json
-  [
-    {
-      "id": 1,
-      "nombre": "Laptop Gamer XYZ",
-      "cantidad": 1,
-      "descripcion": "Laptop de alta gama para videojuegos con pantalla de 15.6\" y procesador i7.",
-      "precio": 1500.00
-    },
-    {
-      "id": 2,
-      "nombre": "Smartphone Alpha X12",
-      "cantidad": 4,
-      "descripcion": "Smartphone de última generación con cámara de 108MP...",
-      "precio": 899.99
-    }
-  ]
+# 3. Restaurar paquetes NuGet
+dotnet restore
 
-### 2. Obtener un producto específico
-- **Método**: `GET`
-- **Ruta**: `/api/productos/{id}`
-- **Descripción**: Obtiene los detalles de un producto específico por su ID.
-- **Respuesta exitosa**:
-  ```json
+# 4. Configurar la base de datos (editar appsettings.json)
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=ProductDB;User Id=sa;Password=TuContraseña;"
+  }
+}
+
+# 5. Ejecutar migraciones (si usas EF Core)
+dotnet ef database update
+
+# 6. Iniciar la aplicación
+dotnet run
+```
+---
+
+# 📡 Endpoints de la API
+
+## 🔹 Obtener todos los productos
+```http
+GET /api/productos
+```
+
+**Respuesta Exitosa (200 OK):**
+```json
+[
   {
     "id": 1,
     "nombre": "Laptop Gamer XYZ",
     "cantidad": 1,
-    "descripcion": "Laptop de alta gama para videojuegos con pantalla de 15.6\" y procesador i7.",
+    "descripcion": "Laptop de alta gama para videojuegos...",
     "precio": 1500.00
   }
+]
+```
 
-### 3. Crear un nuevo producto
-- **Método**: `POST`
-- **Ruta**: `/api/productos`
-- **Descripción**: Crea un nuevo producto.
-- **Cuerpo de la solicitud**:
-  ```json
-  {
-    "id": 1,
-    "nombre": "Laptop Gamer XYZ",
-    "cantidad": 1,
-    "descripcion": "Laptop de alta gama para videojuegos con pantalla de 15.6\" y procesador i7.",
-    "precio": 1500.00
-  }
+## 🔹 Obtener producto específico
+```http
+GET /api/productos/{id}
+```
+**Parámetros:**
+- `id`: ID del producto (requerido)
 
-### 4. Actualizar un producto existente
-- **Método**: `PUT`
-- **Ruta**: `/api/productos/{id}`
-- **Descripción**: Actualiza un producto existente.
-- **Cuerpo de la solicitud**:
-  ```json
-  {
-    "id": 1,
-    "nombre": "Laptop Gamer XYZ",
-    "cantidad": 1,
-    "descripcion": "Laptop de alta gama para videojuegos con pantalla de 15.6\" y procesador i7.",
-    "precio": 1500.00
-  }
+## 🔹 Crear nuevo producto
+```http
+POST /api/productos
+```
 
-### 5. Eliminar un producto
-- **Método**: `DELETE`
-- **Ruta**: `/api/productos/{id}`
-- **Descripción**: Elimina un producto por su ID.
+**Cuerpo de la Solicitud:**
+```json
+{
+  "nombre": "Nuevo Producto",
+  "cantidad": 10,
+  "descripcion": "Descripción del producto",
+  "precio": 99.99
+}
+```
 
+## 🔹 Actualizar producto
+```http
+PUT /api/productos/{id}
+```
+
+**Validaciones:**
+- Todos los campos son requeridos.
+- El precio debe ser mayor que 0.
+
+## 🔹 Eliminar producto
+```http
+DELETE /api/productos/{id}
+```
+
+---
+
+# 📚 Documentación Adicional
+Accede a la documentación interactiva con Swagger UI en:
+
+```text
+http://localhost:5000/swagger
+```
+
+---
+
+# 🤝 Contribuciones
+¡Las contribuciones son bienvenidas! Por favor, lee las guías de contribución antes de enviar un PR.
+
+---
+
+# 📄 Licencia
+Este proyecto está bajo la licencia MIT.
 
